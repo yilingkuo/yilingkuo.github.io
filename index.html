@@ -9,12 +9,13 @@
     <title>Cesium Demo</title>
     <!--script type="text/javascript" src="../Sandcastle-header.js"></script-->
     <script type="text/javascript" src="js/Cesium/Cesium.js"></script>
-    <link rel="stylesheet" href="js/Cesium/Widgets/widgets.css">
     <!--script type="text/javascript" src="../../../ThirdParty/requirejs-2.1.20/require.js"></script-->
 
     </script>
     <style>
-        @import url(css/bucket.css);
+        /* @import url(css/bucket.css);*/ 
+        @import url(js/Cesium/Widgets/widgets.css);
+
 
         html,
         body,
@@ -28,12 +29,13 @@
         }
 
         #toolbar {
+            /* must specified display: block, otherwise the div won't display */
             display: block;
             background: rgba(42, 42, 42, 0.8);
             padding: 4px;
             border-radius: 4px;
             top:10px;
-            left: 5%;
+            left: 3%;
         }
 
             #toolbar input {
@@ -89,6 +91,10 @@ Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOi
 var viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker : false
 });
+// Try change to lighter theme
+document.body.className = 'cesium-lighter';
+animation.applyThemeChanges();
+
 var imageryLayers = viewer.imageryLayers;
 
 var viewModel = {
@@ -220,6 +226,17 @@ function setupLayers() {
     addAdditionalLayerOption(
             'Tile Coordinates',
             new Cesium.TileCoordinatesImageryProvider(), 1.0, false);
+
+    // Add TW Orthophoto layer
+    addAdditionalLayerOption(
+        'TileMapService TW',
+        new Cesium.WebMapTileServiceImageryProvider({
+            url:'https://wmts.nlsc.gov.tw/wmts',
+            layer : 'PHOTO2',
+            style : 'default',
+            tileMatrixSetID : 'GoogleMapsCompatible',
+            maximumLevel: 18,
+        }));
 }
 
 function addBaseLayerOption(name, imageryProvider) {
