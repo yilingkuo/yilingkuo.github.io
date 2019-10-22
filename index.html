@@ -81,7 +81,7 @@
             </tbody>
         </table>
     </div>
-    <script id="cesium_sandcastle_script">
+    <script>
 function startup(Cesium) {
     'use strict';
 //Sandcastle_Begin
@@ -200,6 +200,7 @@ function setupLayers() {
                     format : 'image/png'
                 }
             }));
+            /*
     addAdditionalLayerOption(
             'TileMapService Image',
             Cesium.createTileMapServiceImageryProvider({
@@ -213,6 +214,7 @@ function setupLayers() {
                 rectangle : Cesium.Rectangle.fromDegrees(-115.0, 38.0, -107, 39.75)
             }),
             1.0);
+            */
     addAdditionalLayerOption(
             'Grid',
             new Cesium.GridImageryProvider(), 1.0, false);
@@ -278,7 +280,7 @@ Cesium.knockout.getObservable(viewModel, 'selectedLayer').subscribe(function(bas
 });
 
 //Sandcastle_End
-    Sandcastle.finishedLoading();
+    //Sandcastle.finishedLoading();
 }
 if (typeof Cesium !== 'undefined') {
     startup(Cesium);
