@@ -32,6 +32,7 @@
         #toolbar {
             /* must specified display: block, otherwise the div won't display */
             display: block;
+            z-index: 9999;
             background: rgba(42, 42, 42, 0.8);
             padding: 4px;
             border-radius: 4px;
@@ -63,28 +64,26 @@
 </head>
 <body>
 
-    <div class="cesium-lighter" id="cesiumContainer">
-        <div id="toolbar">
-            <table>
-                <tbody data-bind="foreach: layers">
-                    <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
-                        <td><input type="checkbox" data-bind="checked: show"></td>
-                        <td>
-                            <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
-                            <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
-                        </td>
-                        <td>
-                            <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
-                        </td>
-                        <td><button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">&#9650;</button></td>
-                        <td><button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">&#9660;</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <div class="cesium-lighter" id="cesiumContainer"></div>
     <div id="loadingOverlay"><h1>Loading...</h1></div>
-    
+    <div id="toolbar">
+        <table>
+            <tbody data-bind="foreach: layers">
+                <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
+                    <td><input type="checkbox" data-bind="checked: show"></td>
+                    <td>
+                        <span data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                        <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
+                    </td>
+                    <td>
+                        <input type="range" min="0" max="1" step="0.01" data-bind="value: alpha, valueUpdate: 'input'">
+                    </td>
+                    <td><button type="button" class="cesium-button" data-bind="click: function() { $parent.raise($data, $index()); }, visible: $parent.canRaise($index())">&#9650;</button></td>
+                    <td><button type="button" class="cesium-button" data-bind="click: function() { $parent.lower($data, $index()); }, visible: $parent.canLower($index())">&#9660;</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <script>
 function startup(Cesium) {
     'use strict';
