@@ -11,13 +11,7 @@
     <script type="text/javascript" src="js/Cesium/Cesium.js"></script>
     <link rel="stylesheet" href="js/Cesium/Widgets/widgets.css">
     <!--script type="text/javascript" src="../../../ThirdParty/requirejs-2.1.20/require.js"></script-->
-    <script type="text/javascript">
-        if (typeof require === 'function') {
-            require.config({
-                baseUrl: '../../../Source',
-                waitSeconds: 120
-            });
-        }
+
     </script>
     <style>
         @import url(css/bucket.css);
@@ -34,6 +28,7 @@
         }
 
         #toolbar {
+            display: block;
             background: rgba(42, 42, 42, 0.8);
             padding: 4px;
             border-radius: 4px;
