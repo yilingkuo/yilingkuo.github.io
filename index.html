@@ -21,6 +21,8 @@
     </script>
     <style>
         @import url(js/Cesium/Widgets/widgets.css);
+        @import url(css/bucket.css);
+
         html,
         body,
         #cesiumContainer {
@@ -283,6 +285,7 @@ Cesium.knockout.getObservable(viewModel, 'selectedLayer').subscribe(function(bas
 //Sandcastle_End
     //Sandcastle.finishedLoading();
 }
+
 if (typeof Cesium !== 'undefined') {
     startup(Cesium);
 } else if (typeof require === 'function') {
