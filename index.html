@@ -9,7 +9,7 @@
     <title>Cesium Demo</title>
     <!--script type="text/javascript" src="../Sandcastle-header.js"></script-->
     <script type="text/javascript" src="js/Cesium/Cesium.js"></script>
-
+    <link rel="stylesheet" href="js/Cesium/Widgets/widgets.css">
     <!--script type="text/javascript" src="../../../ThirdParty/requirejs-2.1.20/require.js"></script-->
     <script type="text/javascript">
         if (typeof require === 'function') {
@@ -20,7 +20,6 @@
         }
     </script>
     <style>
-        @import url(js/Cesium/Widgets/widgets.css);
         @import url(css/bucket.css);
 
         html,
@@ -38,6 +37,8 @@
             background: rgba(42, 42, 42, 0.8);
             padding: 4px;
             border-radius: 4px;
+            top:10px;
+            left: 5%;
         }
 
             #toolbar input {
