@@ -20,7 +20,7 @@
         }
     </script>
 </head>
-<body class="sandcastle-loading" data-sandcastle-bucket="bucket-requirejs.html">
+<body>
     <style>
         @import url(js/Cesium/Widgets/widgets.css);
         html,
@@ -85,6 +85,8 @@
 function startup(Cesium) {
     'use strict';
 //Sandcastle_Begin
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YWMxNjJmNy1hOWQ3LTQzYTctYTAwMi1iNTI5ZGZhNTMyODQiLCJpZCI6MTAxMjUsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NTU2ODU2ODZ9.SttC3APgMVDggR_CYn9RyYc2Hw6EOGB7AVqKqpkIepk';
+
 var viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker : false
 });
