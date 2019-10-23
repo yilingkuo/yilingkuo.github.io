@@ -73,7 +73,7 @@
                 <tr data-bind="css: { up: $parent.upLayer === $data, down: $parent.downLayer === $data }">
                     <td><input type="checkbox" data-bind="checked: show"></td>
                     <td>
-                        <span style="color:white;font-family:sans-serif" data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
+                        <span style="color:white;font-size:5px;font-family:sans-serif" data-bind="text: name, visible: !$parent.isSelectableLayer($data)"></span>
                         <select data-bind="visible: $parent.isSelectableLayer($data), options: $parent.baseLayers, optionsText: 'name', value: $parent.selectedLayer"></select>
                     </td>
                     <td>
